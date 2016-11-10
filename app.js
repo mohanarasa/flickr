@@ -41,13 +41,17 @@ function getFlickrPhotos(map, searchLat, searchLon) {
     type: 'GET',
     url : searchUrl,
     dataType:'jsonp',
+    jsonp : 'jsoncallback',
     data: searchReqParams
-  }).done(function(){
-    if (data.photos.photo.length > 0) {
-      getAndMarkPhotos(data.photos);
+  }).done(function(data){
+    $('#lat').val('');
+    $('#lon').val('');
+
+    if (data.items.length > 0) {
+      getAndMarkPhotos(data.items);
       $('#warning').hide();
     } else {
-      console.log(data.photos);
+      console.log(data.items);
       $('#warning').show();
     }
   })
@@ -59,10 +63,13 @@ function getFlickrPhotos(map, searchLat, searchLon) {
 }
 
   function getAndMarkPhotos(photos) {
-    var numPhotos = photos.photo.length;
+    //console.log(photos)
+    var numPhotos = photos.length;
     for(var i=0; i<numPhotos; i++) {
-      var photo = photos.photo[i];
-      getPhotoLocation(photo.id);
+      var photo = photos[i];
+      console.log(photo)
+      $('#photo').append("<img src="+photo.media.m+">");
+      //getPhotoLocation(photo.id);
     }
   }
 
@@ -114,8 +121,10 @@ function getFlickrPhotos(map, searchLat, searchLon) {
 $(document).ready(function() {
   $('#warning').hide();
   $('#search').on('click', function() {
+    $('#images').empty();
     var searchLat = $('#lat').val();
     var searchLon = $('#lon').val();
+
     var googleMap = initialize(searchLat, searchLon);
     getFlickrPhotos(googleMap, searchLat, searchLon);
   });
