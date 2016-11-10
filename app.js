@@ -56,7 +56,7 @@ function getFlickrPhotos(map, searchLat, searchLon) {
     console.log(jqXHR);
     console.log('textStatus: ', textStatus, ' code: ', jqXHR.status);
   });
-
+}
 
   function getAndMarkPhotos(photos) {
     var numPhotos = photos.photo.length;
@@ -67,7 +67,7 @@ function getFlickrPhotos(map, searchLat, searchLon) {
   }
 
   function getPhotoLocation(photoId) {
-    var photoLocUrl = "http://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&";
+    var photoLocUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&";
 
     var photoParams = {
       'api_key': FLICKR_API_KEY,
@@ -110,7 +110,6 @@ function getFlickrPhotos(map, searchLat, searchLon) {
     marker.setMap(map);
     //map.setCenter(myLatLng);
   }
-}
 
 $(document).ready(function() {
   $('#warning').hide();
