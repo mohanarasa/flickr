@@ -124,7 +124,6 @@ $(document).ready(function() {
     $('#images').empty();
     var searchLat = $('#lat').val();
     var searchLon = $('#lon').val();
-
     var googleMap = initialize(searchLat, searchLon);
     getFlickrPhotos(googleMap, searchLat, searchLon);
   });

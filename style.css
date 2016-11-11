@@ -1,28 +1,49 @@
 html {
-  height: 100%
+
 }
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  margin: 70px;
+  background-color: grey;
   font-family: Cormorant Garamond;
 }
 #map-canvas{
-  height: 50%;
-   width: 50%;
-   margin-left:auto;
-   margin-right:auto;
-
-
+  height: 30%;
+  width: 30%;
+  margin: 0px 360px;
  }
 #intro {
   padding-left: 2em;
+  width: 20%;
+  margin: 10px 340px;
 }
 
-$font-stack:    Helvetica, sans-serif
-$primary-color: #333
+h4{
+  text-align: center;
+}
 
-body
-  font: 100% $font-stack
-  color: $primary-color
+img {
+  margin: 20px 20px;
+  width: 200px;
+  height: 200px;
+}
+
+body > div.card-panel.teal.lighten-2 {
+  width: 50%;
+  margin: auto;
+}
+
+button#search {
+  width: 20%;
+  height: 25px;
+  margin: 5px 360px;
+}
+
+p {
+  margin: 10px 360px;
+  display: inline-block;
+}
+
+#photo {
+  width: 80%;
+  margin: 0px 300px;
+}
